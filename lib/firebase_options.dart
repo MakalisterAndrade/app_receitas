@@ -48,12 +48,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyCR-64tYCNMFYE6-4qvCISjswRuKQVdtN4',
-    appId: '1:669982883544:web:528c520622b1f46e7ca1ad',
+    appId: '1:669982883544:web:e6c7bbfec81aecc57ca1ad',
     messagingSenderId: '669982883544',
     projectId: 'app-virtualloja',
     authDomain: 'app-virtualloja.firebaseapp.com',
     storageBucket: 'app-virtualloja.appspot.com',
-    measurementId: 'G-YBKFLVM1SM',
+    measurementId: 'G-HPM9X7Z16M',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
