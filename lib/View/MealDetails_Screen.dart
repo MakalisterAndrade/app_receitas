@@ -10,7 +10,6 @@ import 'package:app_receitas/LogicCode/openYoutubelink_Logic.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:app_receitas/Model/Meal_Model.dart';
-import 'package:app_receitas/View/HomeView/HomeBox/Ads_Box.dart';
 import 'package:app_receitas/View/HomeView/HomeBox/Food_Box.dart';
 import 'package:app_receitas/View/HomeView/HomeBox/Item_Box.dart';
 import 'package:app_receitas/View/HomeView/HomeBox/MostWatched_Box.dart';
@@ -377,7 +376,6 @@ class MealDetailsScreen extends StatelessWidget {
                                       FirstChar: 'l',
                                       BoxTitle: 'Top Reviews',
                                       onPressed: () {}),
-                                  AdsBox(revere: false),
                                   const MostWatchedBox(FirstChar: 'k'),
                                 ],
                               ),

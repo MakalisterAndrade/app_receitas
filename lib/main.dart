@@ -1,3 +1,4 @@
+import 'package:app_receitas/View/HomeView/MapView.dart';
 import 'package:app_receitas/View/LoginView.dart';
 import 'package:app_receitas/View/SignUpView.dart';
 import 'package:app_receitas/firebase_options.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/splash', page: () => SplashScreen()),
         GetPage(name: '/login', page: () => LoginView()),
         GetPage(name: '/register', page: () => SignUpView()),
+        GetPage(name: '/endereco', page: () => MapScreen())
       ],
     );
   }

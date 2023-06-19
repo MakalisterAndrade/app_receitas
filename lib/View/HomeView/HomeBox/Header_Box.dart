@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:app_receitas/View/HomeView/MapView.dart'; // Substitua pelo nome do arquivo real da sua tela de mapa
 
 class HeaderBox extends StatelessWidget {
   const HeaderBox({
@@ -84,7 +85,7 @@ class HeaderBox extends StatelessWidget {
           const SizedBox(width: 20),
           InkWell(
             onTap: () {
-              _showLogoutConfirmationDialog(context);
+              _showLogoutConfirmationDialog(context); // Chama o diálogo de confirmação de logout
             },
             child: Column(
               children: [
@@ -111,6 +112,49 @@ class HeaderBox extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   'Logout',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 20),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) =>
+                      MapScreen(), // Substitua pelo widget real da tela de mapa
+                ),
+              );
+            },
+            child: Column(
+              children: [
+                Container(
+                  height: 43,
+                  width: 43,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    image: const DecorationImage(
+                      image: AssetImage(
+                        'assets/map_icon.png', // Substitua pelo asset da imagem do ícone do mapa
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                    boxShadow: const [
+                      BoxShadow(
+                        offset: Offset(2, 2),
+                        blurRadius: 1,
+                        color: Color.fromARGB(82, 0, 0, 0),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  'Endereço',
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,

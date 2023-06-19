@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:app_receitas/Controler/Area_Data.dart';
 import 'package:app_receitas/Controler/Categorie_Data.dart';
 import 'package:app_receitas/Controler/Ingredient_Data.dart';
-import 'package:app_receitas/View/HomeView/HomeBox/Ads_Box.dart';
 import 'package:app_receitas/View/HomeView/HomeBox/Categorie_Box.dart';
-import 'package:app_receitas/View/HomeView/HomeBox/CroupPhoto_Box.dart';
 import 'package:app_receitas/View/HomeView/HomeBox/Food_Box.dart';
 import 'package:app_receitas/View/HomeView/HomeBox/Header_Box.dart';
 import 'package:app_receitas/View/HomeView/HomeBox/Item_Box.dart';
@@ -30,9 +28,6 @@ class HomeScreen extends StatelessWidget {
         shrinkWrap: true,
         children: [
           const HeaderBox(),
-          // const SearchBox(),
-          // const SizedBox(height: 10),
-          AdsBox(revere: false),
           ItemsBox(
             bkg: Colors.black,
             futureList: IngredientData.GetIngredientTitle(),
@@ -69,12 +64,6 @@ class HomeScreen extends StatelessWidget {
                               firstChar: 'm',
                             )));
               }),
-          GroupPhotoBox(
-            BoxTitle: 'Our Teams',
-            onPressed: () {
-              print('Go To Photo Screen');
-            },
-          ),
           ItemsBox(
             bkg: Colors.black,
             futureList: AreaData.GetArea(),
@@ -109,7 +98,6 @@ class HomeScreen extends StatelessWidget {
             futureList: CategorieData.GetCategorieTitle(),
             filterType: 'Categorie',
           ),
-          AdsBox(revere: false),
           const MostWatchedBox(FirstChar: 'k'),
         ],
       ),
