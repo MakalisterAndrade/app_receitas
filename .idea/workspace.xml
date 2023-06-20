@@ -10,21 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2776678b-7448-4f03-b32d-224336f22c06" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/google-services.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_receitas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app_receitas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/View/HomeView/HomeBox/Ads_Box.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/View/HomeView/HomeBox/CroupPhoto_Box.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/View/HomeView/HomeBox/Header_Box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/View/HomeView/HomeBox/Header_Box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/View/HomeView/Home_Screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/View/HomeView/Home_Screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/View/MealDetails_Screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/View/MealDetails_Screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/View/HomeView/MapView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/View/HomeView/MapView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/View/LoginView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/View/LoginView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/View/SignUpView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/View/SignUpView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

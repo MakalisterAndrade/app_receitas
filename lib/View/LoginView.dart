@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:app_receitas/View/SignUpView.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -24,95 +26,124 @@ class _LoginPageState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/user.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: context.mediaQueryPadding.top),
             SizedBox(
-              height: 300,
+              height: context.height * 0.45,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    "assets/splash.svg",
-                    height: 120,
-                    width: 150,
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(20)),
-              ),
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  TextFormField(
-                    controller: _emailController,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                    ),
-                  ),
-                  const SizedBox(height: 16.0),
-                  TextFormField(
-                    controller: _passwordController,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                      labelText: 'Senha',
-                    ),
-                  ),
-                  const SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      _loginUser();
-                    },
-                    child: const Text('Entrar'),
-                  ),
-                  const SizedBox(height: 16.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      GestureDetector(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          "assets/google_logo.svg",
-                          height: 50,
-                          width: 50,
+
+                      Text(
+                        'Entre e ache a receita perfeita',
+                        style: TextStyle(
+                          color: Colors.red, // Cor desejada
+                          fontSize: 24, // Tamanho do texto
+                          fontWeight: FontWeight.bold, // Peso da fonte
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16.0),
-                  TextButton(
-                    onPressed: _goToRegister,
-                    child: RichText(
-                      text: const TextSpan(
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(20),
+                  ),
+                ),
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        controller: _emailController,
+                        decoration: const InputDecoration(
+                          labelText: 'Email',
                         ),
-                        children: [
-                          TextSpan(
-                            text: "Não tem uma conta? ",
-                            style: TextStyle(
-                              color: Colors.black,
+                      ),
+                      const SizedBox(height: 16.0),
+                      TextFormField(
+                        controller: _passwordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          labelText: 'Senha',
+                        ),
+                      ),
+                      const SizedBox(height: 16.0),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(90.0),
                             ),
                           ),
-                          TextSpan(
-                            text: "Cadastre-se aqui",
-                            style: TextStyle(
-                              color: Colors.red,
+                          backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.red),
+                          elevation: MaterialStateProperty.all<double>(0.5),
+                          // Outras propriedades de estilo que você deseja definir
+                        ),
+                        onPressed: _loginUser,
+                        child: const Text('Entrar'),
+                      ),
+                      const SizedBox(height: 16.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: _loginWithGoogle,
+                            child: SvgPicture.asset(
+                              "assets/google_logo.svg",
+                              height: 50,
+                              width: 50,
                             ),
                           ),
                         ],
                       ),
-                    ),
+                      const SizedBox(height: 16.0),
+                      TextButton(
+                        onPressed: _goToRegister,
+                        child: RichText(
+                          text: const TextSpan(
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: "Não tem uma conta? ",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              TextSpan(
+                                text: "Cadastre-se aqui",
+                                style: TextStyle(
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ],
@@ -121,8 +152,30 @@ class _LoginPageState extends State<LoginView> {
     );
   }
 
+  void _loginWithGoogle() async {
+    try {
+      EasyLoading.show(status: 'Carregando...');
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      if (googleUser != null) {
+        // Autenticação com o Google bem-sucedida
+        Get.offNamed('/splash');
+        _showSuccessSnackbar();
+      } else {
+        // Autenticação com o Google falhou
+        _showErrorSnackbar();
+      }
+    } catch (e) {
+      // Ocorreu um erro ao autenticar com o Google
+      _showErrorSnackbar();
+    } finally {
+      EasyLoading.dismiss();
+    }
+  }
+
   void _loginUser() async {
     try {
+      EasyLoading.show(status: 'Carregando...');
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: _emailController.text,
         password: _passwordController.text,
@@ -134,6 +187,8 @@ class _LoginPageState extends State<LoginView> {
     } catch (e) {
       // Ocorreu um erro ao fazer o login
       _showErrorSnackbar();
+    } finally {
+      EasyLoading.dismiss();
     }
   }
 
